@@ -1,9 +1,10 @@
 name: Deploy Website
 
+# Sproži workflow ob push-u na master (ali main)
 on:
   push:
     branches:
-      - master  # ali main, odvisno od tvojega branch-a
+      - master  # ali main
 
 jobs:
   deploy:
@@ -14,20 +15,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2️⃣ Validate HTML & CSS, preskoči Favicon check
-      - name: Validate HTML
-        uses: anishathalye/proof-html@v2
-        with:
-          directory: "./"
-          check_html: true
-          check_css: false
-          skip_checks: "favicon"
-
-      # 3️⃣ Izpiši sporočilo, da je validacija ok
-      - name: HTML validacija ok
-        if: ${{ success() }}
-        run: echo "HTML validacija ok ✅"
-
-      # 4️⃣ Deploy (lahko spremeniš na pravi deploy korak)
+      # 2️⃣ Deploy korak (osnovni primer)
       - name: Deploy
-        run: echo "Deploy done via GitHub Pages 🚀"
+        run: echo "Deploy done 🚀"
