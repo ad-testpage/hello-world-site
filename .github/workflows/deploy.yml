@@ -13,10 +13,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Validate HTML
-        uses: amitsingh-007/html-validator-action@v1
+      - name: Validate HTML & CSS
+        uses: anishathalye/proof-html@v2
         with:
-          files: "index.html"
+          directory: "./"
+          check_html: true
+          check_css: false
 
       - name: HTML validacija ok
         if: ${{ success() }}
