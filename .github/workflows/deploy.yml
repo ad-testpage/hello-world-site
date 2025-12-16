@@ -1,0 +1,20 @@
+name: Deploy Website
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: HTML validation
+        uses: Cyb3r-Jak3/html5validator-action@v7
+
+      - name: Deploy
+        run: echo "Deploy done via GitHub Pages"
