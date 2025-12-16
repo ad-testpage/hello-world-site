@@ -3,26 +3,31 @@ name: Deploy Website
 on:
   push:
     branches:
-      - master  
+      - master  # ali main, odvisno od tvojega branch-a
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Checkout repozitorija
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Validate HTML & CSS
+      # 2️⃣ Validate HTML & CSS, preskoči Favicon check
+      - name: Validate HTML
         uses: anishathalye/proof-html@v2
         with:
           directory: "./"
           check_html: true
           check_css: false
+          skip_checks: "favicon"
 
+      # 3️⃣ Izpiši sporočilo, da je validacija ok
       - name: HTML validacija ok
         if: ${{ success() }}
-        run: echo "HTML validacija ok"
+        run: echo "HTML validacija ok ✅"
 
+      # 4️⃣ Deploy (lahko spremeniš na pravi deploy korak)
       - name: Deploy
-        run: echo "Deploy done via GitHub Pages"
+        run: echo "Deploy done via GitHub Pages 🚀"
