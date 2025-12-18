@@ -1,18 +1,12 @@
 import sys
 import os
 
-# ANSI escape kode za barve
-GREEN = "\033[92m"
-RED = "\033[91m"
-RESET = "\033[0m"
-
-
 # Preveri, ali datoteka index.html obstaja
 if not os.path.isfile("index.html"):
-    print(f"{RED}index.html missing{RESET}")
+    print(f"index.html missing")
     sys.exit(1)
 else:
-    print(f"{GREEN}index.html obstaja{RESET}")
+    print(f"index.html obstaja")
 
 
 # Preveri osnovne HTML tage
@@ -25,20 +19,18 @@ try:
 
     for tag in tags:
         if tag in content:
-            print(f"{GREEN}{tag} obstaja{RESET}")
+            print(f"{tag} obstaja")
         else:
-            print(f"{RED}{tag} ne obstaja{RESET}")
+            print(f"{tag} ne obstaja")
             all_found = False
 
 except Exception as e:
-    print(f"{RED}Napaka pri branju datoteke: {e}{RESET}")
+    print(f"Napaka pri branju datoteke: {e}")
     sys.exit(1)
 
-# --------------------------
-
 if all_found:
-    print(f"{GREEN}smoke OK: vsi osnovni HTML tagi prisotni{RESET}")
+    print(f"smoke OK: vsi osnovni HTML tagi prisotni")
     sys.exit(0)
 else:
-    print(f"{RED}smoke FAIL: manjkajo nekateri osnovni HTML tagi{RESET}")
+    print(f"smoke FAIL: manjkajo nekateri osnovni HTML tagi")
     sys.exit(1)
