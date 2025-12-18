@@ -11,10 +11,10 @@ Preprosta HTML stran z DevOps CI/CD procesom.
 ## Struktura repozitorija
 
 - `index.html` – glavna HTML stran - struktura strani
-- `style.css` - izgled atrani (barve, pisave, razmike, poravnave)
-- `images` - slike  
-- `.github/workflows/smoke-test.yml` – CI/CD workflow (smoke test)
-- `smoke-check.py` – preprosti smoke test za preverjanje strani
+- `style.css` - izgled atrani (barve, pisave, razmiki, poravnave)
+- `images` - datoteka s slikami  
+- `smoke-check.py` – preprosti python smoke test za preverjanje strani
+- `.github/workflows/smoke-test.yml` – workflow, ki naredi smoke test
 
 ## Deployment
 Push na `master` branch → avtomatska objava
